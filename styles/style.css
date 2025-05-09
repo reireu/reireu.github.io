@@ -73,3 +73,35 @@ body {
     margin: 10px 0;
   }
 }
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-nav li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.footer-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.footer-nav a:hover {
+  color: #8cb6c5;
+}
+.footer-nav a:active {
+  color: #6d91b3;
+}
