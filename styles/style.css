@@ -42,7 +42,7 @@ body {
 .card {
   width: 90%;
   max-width: 800px;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(242, 242, 242, 0.75);
   padding: 30px;
   border-radius: 15px;
   margin-bottom: 30px;
@@ -54,7 +54,7 @@ body {
 .card-title {
   font-size: 1.5em;
   margin-bottom: 1em;
-  color: #333;
+  color: #eab0cd;
   font-weight: bold;
 }
 
@@ -75,8 +75,8 @@ body {
 }
 
 .footer {
-  background-color: #333;
-  color: white;
+  background-color: #f0eded;
+  color: rgb(216, 160, 188);
   padding: 20px 0;
   text-align: center;
 }
@@ -93,7 +93,7 @@ body {
 }
 
 .footer-nav a {
-  color: white;
+  color: rgb(246, 167, 205);
   text-decoration: none;
   font-size: 1rem;
   font-weight: bold;
