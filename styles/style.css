@@ -75,6 +75,7 @@ body {
 }
 
 .footer {
+  position: fixed;
   background-color: #f0eded;
   color: rgb(216, 160, 188);
   padding: 20px 0;
