@@ -5,109 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>倉科世玲菜のポートフォリオ</title>
   <link rel="stylesheet" href="styles/style.css" />
-  <!-- Bootstrap 5のCSSを追加 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <!-- ナビゲーションを追加 -->
-  <div class="header"></div>
-  <footer class="sticky-top bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#profile">プロフィール</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#education">学歴</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#awards">受賞歴</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#skills">スキル</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">連絡先</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#activities">課外活動</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </footer>
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <div class="content-wrapper">
-    <img src="images/mypic.png" alt="プロフィール写真" class="profile-pic" />
-    
-    <div class="card">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+  <!-- 自作CSS -->
+  <link rel="stylesheet" href="styles/style.css">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- OGP & SEO meta -->
+  <meta name="description" content="倉科世玲菜（Kurashina Serena）のポートフォリオ。学歴・受賞歴・課外活動などを紹介しています。">
+  <meta property="og:title" content="倉科世玲菜のポートフォリオ">
+  <meta property="og:description" content="データサイエンスや多言語スキルを活かした経歴・活動・作品を掲載。">
+  <meta property="og:image" content="https://reireu.github.io/images/ogp.png">
+  <meta property="og:url" content="https://reireu.github.io">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="bg-light">
+  <div class="header"></div>
+
+  <main class="container py-5">
+    <div class="text-center mb-4">
+      <img src="images/mypic.png" alt="倉科世玲菜のプロフィール写真" class="profile-pic rounded-circle"/>
+    </div>
+    <div class="card shadow-sm mb-5">
       <div class="card-body">
-        <h5 class="card-title" id="profile">自己紹介</h5>
+        <h5 class="card-title" id="profile"><i class="bi bi-person-circle"></i> 自己紹介</h5>
         <p class="card-text">
           倉科世玲菜/Kurashina Serena です！
         </p>
         <p class="card-text">
           27卒。2005年誕。<br>
-          東京都23区やや南寄りに15年間、父親の仕事の関係で名前を言っても反応に困るアフリカの国に3年と2年、計5年住んでいました。<br>
-          英語は発展途上中です。彼の国が先進国扱いされる頃には流暢になる予定です。どちらかといえばイギリス英語の語彙の方がよく使います。<br>
-          その他フランス語を第二外国語として、中国語を趣味で勉強しています。<br>
-          ベンガル語とスワヒリ語とツワナ語の語彙をほんのちょっとだけ知っています。<br>
-          なにか自分の世界線を構築するのが好きで、今も小説も書くのですが、大学になって以降は最近は自分の世界線を構築するために、Pythonも用いるようになりました。。<br>
+          東京都23区南寄りに15年間、父親がJICAで働いてる関係で名前を言っても反応に困るアフリカの国に3年と2年、計5年住んでいました。<br>
+          資格で証明できる英語はB1レベルです。（14歳次英検2級）両国、イギリス英語の語彙が近い関係で、影響を受けています。<br>
+          その他🇨🇳中国語（マンダリン）を趣味で、🇫🇷フランス語を第二外国語として勉強しています。（2025.5.16 現在日常会話可能レベル）<br>
+          🇧🇩ベンガル語と🇰🇪スワヒリ語と🇧🇼ツワナ語の語彙をほんのちょっとだけ知っています。（2025.5.16 現在基礎会話可能レベル）<br>
+          順得意順。<br><br>
+          なにか自分の世界線を構築するのが好きで、今も小説も書くのですが、大学になって以降は最近は自分の世界線を構築するために、プログラミングという手段も面白いと思い、この業界に飛び込みました。<br>
           授業でmatplotlib、TensorFlowなどを触れていました。その他ゼミの自分の開発案件で、HTML・CSSも触れていました。<br>
-          最近は、就活に追われながら気がむくままに勉強しています。
+          最近は、就活に追われながら気がむくままに勉強しています。<br><br>
         </p>
         
-        <h5 class="card-title" id="education">学歴</h5>
+        <h5 class="card-title" id="education"><i class="bi bi-mortarboard"></i> 学歴</h5>
         <p class="card-text">
           2016年12月 - 2018年12月<br>
           Westwood International School<br>
           Back to those days in Botswana, I was running all around the playground to play tag and football.<br>
-          I was a member of the school orchestra and played trumpet.<br>
-          2023年4月 - 現在<br>
+          I was a member of the school orchestra and played trumpet.<br><br>
+          2023年04月 - 現在<br>
           武蔵野大学 データサイエンス学<br>
-          保育園のインターン、区の20歳のつどい実行委員、ケニアの時の幼稚園でもあるNGOに参加しながら、自分のやりたいことを追求できた良い環境です。<br>
+          プログラミングサークル（will）、保育園のインターン、区の20歳のつどい実行委員、ケニアの時の幼稚園でもあるNGOに参加しながら、自分のやりたいことを追求できた良い環境です。<br><br>
         </p>
 
-        <h5 class="card-title" id="awards">受賞歴</h5>
+        <h5 class="card-title" id="awards"><i class="bi bi-award"></i> 受賞歴</h5>
         <p class="card-text">
-          1dayハッカソン MVP テーマ:「顧客の課題を解決するWebページをチームで作成し、コンペで優勝しよう!」<br>
-          <a href="https://vcs.sakazuki.xyz/career-credentials/clu3y05sy000ks601gz3iht75">参考</a>
+          <span class="badge bg-success"><i class="bi bi-trophy-fill"></i> MVP</span><br>
+          第2回 X Hackathon MVP受賞 テーマ:「顧客の課題を解決するWebページをチームで作成し、コンペで優勝しよう!」<br>
+           画像探し、文章作成の一部、cssの一部を担当。<br>
+          <a href="https://vcs.sakazuki.xyz/career-credentials/clu3y05sy000ks601gz3iht75" target="_blank" rel="noopener">参考</a>
         </p>
         
-        <h5 class="card-title" id="skills">スキル</h5>
-        <p class="card-text">
-          Python ★★☆☆☆<br>
-          HTML/CSS ★☆☆☆☆<br>
-          JavaScript ★☆☆☆☆<br>
-          Ruby ★☆☆☆☆
+        <h5 class="card-title" id="skills"><i class="bi bi-lightning"></i> スキル</h5>
+        <p class="card-text skills">
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle text-center mb-2">
+            <thead class="table-light">
+              <tr><th>スキル</th><th>習熟度</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Python</td><td><span class="badge bg-warning text-dark">★★☆☆☆</span></td></tr>
+              <tr><td>HTML/CSS</td><td><span class="badge bg-warning text-dark">★★☆☆☆</span></td></tr>
+              <tr><td>JavaScript</td><td><span class="badge bg-info text-dark">★☆☆☆☆</span></td></tr>
+              <tr><td>Ruby</td><td><span class="badge bg-info text-dark">★☆☆☆☆</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+          <br>
+          <span class="badge bg-warning text-dark">★★☆☆☆</span> → サイトを見ながら慣れたものは自走できるレベル<br>
+          <span class="badge bg-info text-dark">★☆☆☆☆</span> → 基本的な文法を理解し、書けるレベル<br>
         </p>
-        
-        <h5 class="card-title" id="contact">連絡先</h5>
+
+        <h5 class="card-title" id="contact"><i class="bi bi-envelope-fill"></i> 連絡先</h5>
         <p class="card-text">
-          https://github.com/reireu<br>
-          https://www.linkedin.com/in/世玲菜-倉科-821890364/
+          <a href="https://github.com/reireu" target="_blank" rel="noopener">https://github.com/reireu</a><br>
+          <a href="https://www.linkedin.com/in/世玲菜-倉科-821890364/" target="_blank" rel="noopener">https://www.linkedin.com/in/世玲菜-倉科-821890364/</a><br>
+
         </p>
-        
-        <h5 class="card-title" id="activities">課外活動</h5>
+        <!-- Googleフォームの送信先URLをあとで自分のフォームに変更 -->
+        <br>
+        <form action="https://docs.google.com/forms/d/e/フォームID/formResponse" method="POST" target="_blank" class="mt-3">
+          <div class="mb-2">
+            <label for="entry.1234567890" class="form-label">お名前</label>
+            <input type="text" class="form-control" name="entry.1234567890" id="entry.1234567890" required>
+          </div>
+          <div class="mb-2">
+            <label for="entry.2345678901" class="form-label">メールアドレス</label>
+            <input type="email" class="form-control" name="entry.2345678901" id="entry.2345678901" required>
+          </div>
+          <div class="mb-2">
+            <label for="entry.3456789012" class="form-label">メッセージ</label>
+            <textarea class="form-control" name="entry.3456789012" id="entry.3456789012" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">送信</button>
+          <small class="d-block mt-2 text-muted">Googleフォームを利用しています</small>
+        </form>
+
+        <h5 class="card-title" id="activities"><i class="bi bi-people-fill"></i> 課外活動</h5>
         <p class="card-text">
-          2022年4月 - 現在<br>
+          <br>2022年4月 - 現在<br>
           NGO Koinnonia Centre<br>
           ケニアのスラム街に住む子たちに、世界で活躍できる教育を目指し、保育園から高校まで一気通貫型教育を行っているNGO団体で、私の出身幼稚園です。<br>
           母親が責任感が強く、たまに体調を崩してでも活動してしまうので、excelや文章作成といったところで、軽くお手伝いをしています。<br>
-          最近では新宿のバナーに参加し、想像以上の売り上げに携われ、大変嬉しく思っております。<br><br>
+          最近では新宿のバナーに参加し、想像以上の売り上げに携われ、大変嬉しく思っております。<br><br><br>
         
           2024年9月 - 2025年2月<br>
           まなびの森麻布 保育補助インターン<br>
           保育補助のインターンとして、おむつ替え、掃除、カーテン替えから、名刺作成パンフ作成など、幅広い業務を行いました。<br>
           どのような進路に進むとしても、全く経験のないところを一度は押さえておきたい気持ちから、応募しましたが、せれな先生！と呼ばれるあの時間が日々の癒しでした。<br>
-          日々の生活力、言葉をわかりやすく言い換える力など、思わぬ力が身についた、充実した時間でした。<br><br>
+          日々の生活力、言葉をわかりやすく言い換える力など、思わぬ力が身についた、充実した時間でした。<br><br><br>
         
           2024年9月 - 2025年1月<br>
           港区主催 20歳のつどい実行委員 企画担当。<br>
@@ -116,7 +134,15 @@
           会場がどっと盛り上がった瞬間や、同い年の友達と一緒に作り上げた感があった瞬間は、何にも代えがたい経験でした。<br>
           チームプレイや、責任のある仕事を任されるのが、思っていた以上に好きだと知れた、貴重な経験でした。
         </p>
-        
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-4 bg-white shadow-sm">
+    <div class="container">
+      <small>&copy; 2025 倉科世玲菜 / Kurashina Serena</small>
+    </div>
+  </footer>
 
   <!-- Bootstrap 5のJavaScriptを追加 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
