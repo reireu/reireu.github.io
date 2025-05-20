@@ -121,3 +121,31 @@ td {
 .footer-nav a:active {
   color: #6d91b3;
 }
+
+/* 埋め込みウィジェットのスタイル */
+.qiita-link-button {
+  margin: 8px 0;
+}
+
+.qiita-link-button a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background-color: #ffb6c1;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.qiita-link-button a:hover {
+  background-color: #ff9bb0;
+  transform: scale(1.05);
+}
+
+.qiita-link-button i {
+  font-size: 16px;
+}
