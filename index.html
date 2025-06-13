@@ -4,33 +4,82 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>倉科世玲菜のポートフォリオ</title>
+  
+  <!-- 読み込み　-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles/style.css" />
-    <!-- Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap&text=%E5%80%89%E7%A7%91%E4%B8%96%E7%8E%B2%E7%8F%A0" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
-  <!-- 自作CSS -->
-  <link rel="stylesheet" href="styles/style.css">
-
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <!-- OGP & SEO meta -->
-  <meta name="description" content="倉科世玲菜（Kurashina Serena）のポートフォリオ。学歴・受賞歴・課外活動などを紹介しています。">
-  <meta property="og:title" content="倉科世玲菜のポートフォリオ">
-  <meta property="og:description" content="データサイエンスや多言語スキルを活かした経歴・活動・作品を掲載。">
-  <meta property="og:image" content="https://reireu.github.io/images/ogp.png">
+  
+  <!-- SEO強化 - 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "倉科世玲菜",
+    "alternateName": "Kurashina Serena",
+    "description": "データサイエンス学生、多言語話者、プログラマー",
+    "url": "https://reireu.github.io",
+    "image": "https://reireu.github.io/images/mypic.webp",
+    "sameAs": [
+      "https://github.com/reireu",
+      "https://qiita.com/reireu"
+    ],
+    "jobTitle": "データサイエンス学生",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "武蔵野大学"
+    },
+    "knowsLanguage": ["ja", "en", "zh", "fr", "bn", "sw"],
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Westwood International School"
+    }
+  }
+  </script>
+  
+  <!-- SEO & OGP meta -->
+  <meta name="description" content="倉科世玲菜（Kurashina Serena）のポートフォリオ。データサイエンス・多言語スキル・プログラミング経験を持つ27卒学生の学歴・受賞歴・課外活動を紹介。">
+  <meta name="keywords" content="倉科世玲菜,Kurashina Serena,ポートフォリオ,データサイエンス,プログラミング,多言語,武蔵野大学">
+  <meta name="author" content="倉科世玲菜">
+  <meta property="og:title" content="倉科世玲菜のポートフォリオ | データサイエンス学生">
+  <meta property="og:description" content="データサイエンスや多言語スキルを活かした経歴・活動・作品を掲載。プログラミング、国際経験豊富な27卒学生のポートフォリオ。">
+  <meta property="og:image" content="https://reireu.github.io/images/ogp.webp">
   <meta property="og:url" content="https://reireu.github.io">
+  <meta property="og:type" content="profile">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="倉科世玲菜のポートフォリオ">
+  <meta name="twitter:description" content="データサイエンス・多言語・プログラミングスキルを持つ学生のポートフォリオ">
+
 </head>
-<body class="bg-light">
-  <div class="header"></div>
+<body>
+  <header class="header">
+    <div class="logo">Hello World!</div>
+    <nav class="nav-menu">
+      <a href="#profile">プロフィール</a>
+      <a href="#awards">受賞歴</a>
+      <a href="#skills">スキル</a>
+      <a href="#contact">連絡先</a>
+      <a href="#education">学歴</a>
+      <a href="#activities">活動</a>
+    </nav>
+    <div class="header-controls">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="bi bi-moon-fill" id="theme-icon"></i>
+      </button>
+    </div>
+  </header>
 
   <main class="container py-5">
     <div class="text-center mb-4">
-      <img src="images/mypic.png" alt="倉科世玲菜のプロフィール写真" class="profile-pic rounded-circle"/>
+      <img src="images/mypic.png" alt="倉科世玲菜のプロフィール写真" class="profile-pic"/>
     </div>
+
     <div class="card shadow-sm mb-5">
       <div class="card-body">
         <h5 class="card-title" id="profile"><i class="bi bi-person-circle"></i> 自己紹介</h5>
@@ -48,7 +97,13 @@
           授業でmatplotlib、TensorFlowなどを触れていました。その他ゼミの自分の開発案件で、HTML・CSSも触れていました。<br>
           最近は、就活に追われながら気がむくままに勉強しています。<br><br>
         </p>
-        
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="card shadow-sm mb-5">
+      <div class="card-body">
         <h5 class="card-title" id="awards"><i class="bi bi-award"></i> 受賞歴/作品など</h5>
         <p class="card-text">
           <span class="badge bg-success"><i class="bi bi-trophy-fill"></i> MVP</span><br>
@@ -73,90 +128,168 @@
             <i class="bi bi-box-arrow-up-right"></i> 都市音響生態系の時空間変遷システム構築
           </a>
         </div>
-        <br>
-
-
-        <h5 class="card-title" id="education"><i class="bi bi-mortarboard"></i> 学歴</h5>
-        <p class="card-text">
-          2016年12月 - 2018年12月<br>
-          Westwood International School<br>
-          Back to those days in Botswana, I was running all around the playground to play tag and football.<br>
-          I was a member of the school orchestra and played trumpet.<br><br>
-          2023年04月 - 現在<br>
-          武蔵野大学 データサイエンス学<br>
-          プログラミングサークル（will）、保育園のインターン、区の20歳のつどい実行委員、ケニアの時の幼稚園でもあるNGOに参加しながら、自分のやりたいことを追求できた良い環境です。<br><br>
-        </p>
-
-        <h5 class="card-title" id="skills"><i class="bi bi-lightning"></i> スキル</h5>
-        <p class="card-text skills">
-        <div class="table-responsive">
-          <table class="table table-bordered align-middle text-center mb-2">
-            <thead class="table-light">
-              <tr><th>スキル</th><th>習熟度</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Python</td><td><span class="badge bg-warning text-dark">★★☆☆☆</span></td></tr>
-              <tr><td>HTML/CSS</td><td><span class="badge bg-warning text-dark">★★☆☆☆</span></td></tr>
-              <tr><td>JavaScript</td><td><span class="badge bg-info text-dark">★☆☆☆☆</span></td></tr>
-              <tr><td>Ruby</td><td><span class="badge bg-info text-dark">★☆☆☆☆</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-          <br>
-          <span class="badge bg-warning text-dark">★★☆☆☆</span> → サイトを見ながら慣れたものは自走できるレベル<br>
-          <span class="badge bg-info text-dark">★☆☆☆☆</span> → 基本的な文法を理解し、書けるレベル<br>
-        </p>
-
-        <h5 class="card-title" id="contact"><i class="bi bi-envelope-fill"></i> 連絡先</h5>
-        <p class="card-text">
-        <!-- GitHubリンク -->
-        <a href="https://github.com/reireu" target="_blank" rel="noopener noreferrer" class="text-dark fs-3 me-3">
-          <i class="bi bi-github"></i> 
-        </a>
-        <!-- メールリンク -->
-        <a href="mailto:renax749@gmail.com" class="text-dark fs-3">
-          <i class="bi bi-envelope"></i> 
-        </a>
-        </p>
-        <!-- フォーム埋め込み -->
-        <br>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScZte0o2l7IRyjb0zMP-2K5Vn-9lEwvUPS91d6FzHkSaUSM8g/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-        <br>
-        <br>
-        
-        <h5 class="card-title" id="activities"><i class="bi bi-people-fill"></i> 課外活動</h5>
-        <p class="card-text">
-          <br>2022年4月 - 現在<br>
-          NGO Koinnonia Centre<br>
-          ケニアのスラム街に住む子たちに、世界で活躍できる教育を目指し、保育園から高校まで一気通貫型教育を行っているNGO団体で、私の出身幼稚園です。<br>
-          母親が責任感が強く、たまに体調を崩してでも活動してしまうので、excelや文章作成といったところで、軽くお手伝いをしています。<br>
-          最近では新宿のバナーに参加し、想像以上の売り上げに携われ、大変嬉しく思っております。<br><br><br>
-        
-          2024年9月 - 2025年2月<br>
-          まなびの森麻布 保育補助インターン<br>
-          保育補助のインターンとして、おむつ替え、掃除、カーテン替えから、名刺作成パンフ作成など、幅広い業務を行いました。<br>
-          どのような進路に進むとしても、全く経験のないところを一度は押さえておきたい気持ちから、応募しましたが、せれな先生！と呼ばれるあの時間が日々の癒しでした。<br>
-          日々の生活力、言葉をわかりやすく言い換える力など、思わぬ力が身についた、充実した時間でした。<br><br><br>
-        
-          2024年9月 - 2025年1月<br>
-          港区主催 20歳のつどい実行委員 企画担当。<br>
-          自らの参加する成人式の、立案、企画、当日の運営まで、同い年13人でやり抜きました。<br>
-          自身は、案だし、当日の運営を担当し、当日までの準備としてクイズ生成や、当日の運営を行いました。<br>
-          会場がどっと盛り上がった瞬間や、同い年の友達と一緒に作り上げた感があった瞬間は、何にも代えがたい経験でした。<br>
-          チームプレイや、責任のある仕事を任されるのが、思っていた以上に好きだと知れた、貴重な経験でした。
-        </p>
       </div>
     </div>
-  </main>
 
-  <footer class="text-center py-4 bg-white shadow-sm">
-    <div class="container">
-      <small>&copy; 2025 倉科世玲菜 / Kurashina Serena</small>
+    <div class="section-divider"></div>
+
+    <div class="card shadow-sm mb-5">
+      <div class="card-body">
+        <h5 class="card-title" id="skills"><i class="bi bi-lightning"></i> スキル</h5>
+        <div class="skills-container">
+
+          <div class="skill-item">
+            <div class="skill-header d-flex justify-content-between">
+              <span class="skill-name">Git/Github</span>
+              <span class="skill-level">50%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 50%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header d-flex justify-content-between">
+              <span class="skill-name">Python</span>
+              <span class="skill-level">40%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 40%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-header d-flex justify-content-between">
+              <span class="skill-name">HTML/CSS</span>
+              <span class="skill-level">40%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 40%"></div>
+              </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-header d-flex justify-content-between" role="presentation">
+              <span class="skill-name" id="js-skill">JavaScript</span>
+              <span class="skill-level" aria-labelledby="js-skill">20%</span>
+            </div>
+            <div class="progress-container" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width: 20%"></div>
+            </div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-header d-flex justify-content-between">
+              <span class="skill-name">Ruby</span>
+              <span class="skill-level">20%</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" style="width:20%"></div>
+            </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
 
+    <div class="section-divider"></div>
+    <div class="card shadow-sm mb-5">
+      <div class="card-body">
+    <h5 class="card-title" id="contact"><i class="bi bi-envelope-fill"></i> 連絡先</h5>
+    <p class="card-text">
+    <!-- GitHubリンク -->
+    <a href="https://github.com/reireu" target="_blank" rel="noopener noreferrer" class="text-dark fs-3 me-3">
+      <i class="bi bi-github"></i> 
+    </a>
+    <!-- メールリンク -->
+    <a href="mailto:renax749@gmail.com" class="text-dark fs-3">
+      <i class="bi bi-envelope"></i> 
+    </a>
+    </p>
+    <!-- フォーム埋め込み -->
+    <br>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScZte0o2l7IRyjb0zMP-2K5Vn-9lEwvUPS91d6FzHkSaUSM8g/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+    <br>
+    <br>
+        
+      </div>
+    </div>
 
-  <!-- Bootstrap 5のJavaScriptを追加 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <div class="section-divider"></div>
+
+    <div class="card shadow-sm mb-5">
+      <div class="card-body">
+        <h5 class="card-title" id="education"><i class="bi bi-mortarboard"></i> 学歴</h5>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2016年12月 - 2018年12月</div>
+            <div class="timeline-title">Westwood International School</div>
+            <div class="timeline-description">
+              Back to those days in Botswana, I was running all around the playground to play tag and football.<br>
+              I was a member of the school orchestra and played trumpet.
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">2023年04月 - 現在</div>
+            <div class="timeline-title">武蔵野大学 データサイエンス学部</div>
+            <div class="timeline-description">
+              プログラミングサークル（will）、保育園のインターン、区の20歳のつどい実行委員、ケニアの時の幼稚園でもあるNGOに参加しながら、自分のやりたいことを追求できた良い環境です。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="card shadow-sm mb-5">
+      <div class="card-body">
+        <h5 class="card-title" id="activities"><i class="bi bi-people-fill"></i> 課外活動</h5>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2022年4月 - 現在</div>
+            <div class="timeline-title">NGO Koinnonia Centre</div>
+            <div class="timeline-description">
+              ケニアのスラム街に住む子たちに、世界で活躍できる教育を目指し、保育園から高校まで一気通貫型教育を行っているNGO団体で、私の出身幼稚園です。<br>
+              母親が責任感が強く、たまに体調を崩してでも活動してしまうので、excelや文章作成といったところで、軽くお手伝いをしています。<br>
+              最近では新宿のバナーに参加し、想像以上の売り上げに携われ、大変嬉しく思っております。
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">2024年9月 - 2025年2月</div>
+            <div class="timeline-title">まなびの森麻布 保育補助インターン</div>
+            <div class="timeline-description">
+              保育補助のインターンとして、おむつ替え、掃除、カーテン替えから、名刺作成パンフ作成など、幅広い業務を行いました。<br>
+              どのような進路に進むとしても、全く経験のないところを一度は押さえておきたい気持ちから、応募しましたが、せれな先生！と呼ばれるあの時間が日々の癒しでした。<br>
+              日々の生活力、言葉をわかりやすく言い換える力など、思わぬ力が身についた、充実した時間でした。
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">2024年9月 - 2025年1月</div>
+            <div class="timeline-title">港区主催 20歳のつどい実行委員</div>
+            <div class="timeline-description">
+              自らの参加する成人式の、立案、企画、当日の運営まで、同い年13人でやり抜きました。<br>
+              自身は、案だし、当日の運営を担当し、当日までの準備としてクイズ生成や行いました。<br>
+              会場がどっと盛り上がった瞬間や、同い年の友達と一緒に作り上げた感があった瞬間は、何にも代えがたい経験でした。<br>
+              チームプレイや、責任のある仕事を任されるのが、思っていた以上に好きだと知れた、貴重な経験でした。
+            </div>
+          </div>
+        </main>
+
+          <footer class="text-center py-4 bg-white shadow-sm">
+            <div class="container">
+              <small>&copy; 2025 倉科世玲菜 / Kurashina Serena</small>
+            </div>
+          </footer>
+            
+            
+              <!-- Bootstrap 5のJavaScriptを追加 -->
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+            </body>
+            </html>
