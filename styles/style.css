@@ -308,19 +308,6 @@
     padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
-    border-left: 4px solid var(--primary-color);
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -2.5rem;
-    top: 1.5rem;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    border: 3px solid var(--bg-primary);
   }
 
   .timeline-date {
