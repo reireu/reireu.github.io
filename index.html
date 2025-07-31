@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio:reireu</title>
+  <title>Serena.K.portfolio</title>
   
   <!-- 読み込み　-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,12 +61,12 @@
   <header class="header">
     <div class="logo">Hello World!</div>
     <nav class="nav-menu">
+      <a href="#awards">作品</a>
       <a href="#profile">プロフィール</a>
-      <a href="#awards">受賞歴</a>
       <a href="#skills">スキル</a>
-      <a href="#contact">連絡先</a>
       <a href="#education">学歴</a>
       <a href="#activities">活動</a>
+      <a href="#contact">連絡先</a>
     </nav>
     <div class="header-controls">
       <button class="theme-toggle" onclick="toggleTheme()">
@@ -80,26 +80,6 @@
       <img src="images/mypic.png" alt="倉科世玲菜のプロフィール写真" class="profile-pic"/>
     </div>
 
-    <div class="card shadow-sm mb-5">
-      <div class="card-body">
-        <h5 class="card-title" id="profile"><i class="bi bi-person-circle"></i> 自己紹介</h5>
-        <p class="card-text">
-          倉科世玲菜/Kurashina Serena です！
-        </p>
-        <p class="card-text">
-          27卒。2005年誕。<br>
-          東京都23区南寄りに15年間、父親がJICAで働いてる関係で名前を言っても反応に困るアフリカの国に3年と2年、計5年住んでいました。<br>
-          資格で証明できる英語はB1レベルです。（14歳次英検2級）両国、イギリス英語の語彙が近い関係で、影響を受けています。<br>
-          その他🇨🇳中国語（マンダリン）を趣味で、🇫🇷フランス語を第二外国語として勉強しています。（2025.5.16 現在日常会話可能レベル）<br>
-          🇧🇩ベンガル語と🇰🇪スワヒリ語と🇧🇼ツワナ語の語彙をほんのちょっとだけ知っています。（2025.5.16 現在基礎会話可能レベル）<br>
-          順得意順。<br><br>
-          なにか自分の世界線を構築するのが好きで、今も小説も書くのですが、大学になって以降は自分の世界線を構築するために、プログラミングも手段として取り入れ、難しいながら楽しませてもらっています。<br>
-          授業でmatplotlib、TensorFlowなどを触れていました。その他ゼミの自分の開発案件で、HTML・CSSも触れていました。<br>
-          最近は、就活に追われながら気がむくままに勉強しています。<br><br>
-        </p>
-      </div>
-    </div>
-
     <div class="section-divider"></div>
 
     <div class="card shadow-sm mb-5">
@@ -110,24 +90,67 @@
           第2回 X Hackathon MVP受賞 テーマ:「顧客の課題を解決するWebページをチームで作成し、コンペで優勝しよう!
           <a href="https://vcs.sakazuki.xyz/career-credentials/clu3y05sy000ks601gz3iht75" target="_blank" rel="noopener">参考</a>
 
-          <div class="qiita-link-button">
-            <a href="https://github.com/reireu/dglp" target="_blank" rel="noopener noreferrer">
-              <i class="bi bi-box-arrow-up-right"></i> 作成したサイト
-            </a>
-          </div>
+      <!-- プロジェクトカード1 -->
+      <div class="project-card">
+        <img src="./screenshot1.png" alt="X Hackathon MVP作品" />
+        <h6>チームでWebページを制作し、MVPを受賞しました。</h6>
+        <p>HTML,css</p>
+        <a href="https://github.com/reireu/dglp" target="_blank" rel="noopener">
+          <i class="bi bi-box-arrow-up-right"></i> サイトを見る
+        </a>
+      </div>
+
+      <!-- プロジェクトカード2 -->
+      <div class="project-card">
+        <img src="./screenshot2.png" alt="感覚過敏支援システム" />
+        <h6>危険箇所を共有できる地図アプリを構築しました。</h6>
+        <p>HTML,css,JavaScript</p>
+        <a href="https://qiita.com/reireu/items/6a796cbabbbe550a66c2" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-box-arrow-up-right"></i> 記事を見る
+        </a>
+      </div>
+
+      <!-- プロジェクトカード3 -->
+      <div class="project-card">
+        <img src="./scrrenshot3.png" alt="都市音響エコロジー" />
+        <h6>音環境の時空間的変化を可視化するシステムを開発。</h6>
+        <p>Python</p>
+        <a href="https://qiita.com/reireu/items/75398c03be67021b3616" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-box-arrow-up-right"></i> 記事を見る
+        </a>
+      </div>
+
+      <!-- プロジェクトカード4 -->
+      <div class="project-card">
+        <img src="./screenshot4.png" alt="中国語発音矯正アプリ画面のスクショ" />
+        <h6>中国語発音矯正</h6>
+        <p>Dart,Python</p>
+        <a href="https://qiita.com/reireu/items/75398c03be67021b3616" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-box-arrow-up-right"></i> 記事を見る
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <div class="card shadow-sm mb-5">
+      <div class="card-body">
+        <h5 class="card-title" id="profile"><i class="bi bi-person-circle"></i> 自己紹介</h5>
+        <p class="card-text">
+          倉科世玲菜/Kurashina Serena です！
         </p>
-
-        <div class="qiita-link-button">
-          <a href="https://qiita.com/reireu/items/6a796cbabbbe550a66c2" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-box-arrow-up-right"></i> 感覚過敏を患う人たちのための危険箇所共有システムの構築
-          </a>
-        </div>
-
-        <div class="qiita-link-button">
-          <a href="https://qiita.com/reireu/items/75398c03be67021b3616" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-box-arrow-up-right"></i> 都市音響生態系の時空間変遷システム構築
-          </a>
-        </div>
+        <p class="card-text">
+          27卒。2005年誕。<br>
+          東京都23区南寄りに15年間、父親がJICAで働いてる関係で名前を言っても反応に困るアフリカの国に3年と2年、計5年住んでいました。<br>
+          同時バイリンガル寄りの早期バイリンガルではありますが、資格で証明できる英語はB1レベルです。（14歳次英検2級）<br>
+          その他🇨🇳中国語（マンダリン）を趣味で、🇫🇷フランス語を第二外国語として勉強しています。（2025.5.16 現在日常会話可能レベル）<br>
+          🇧🇩ベンガル語と🇰🇪スワヒリ語と🇧🇼ツワナ語の語彙をほんのちょっとだけ知っています。（2025.5.16 現在基礎会話可能レベル）<br>
+          順得意順。<br><br>
+          なにか自分の世界線を構築するのが好きで、今も小説も書くのですが、大学になって以降は自分の世界線を構築するために、プログラミングも手段として取り入れ、難しいながら楽しませてもらっています。<br>
+          授業でmatplotlib、TensorFlowなどを触れていました。その他ゼミの自分の開発案件で、HTML・CSSも触れていました。<br>
+          最近は、就活に追われながら気がむくままに勉強しています。<br><br>
+        </p>
       </div>
     </div>
 
@@ -191,23 +214,6 @@
         </div>
       </div> 
     </div> 
-
-    <div class="section-divider"></div>
-    <div class="card shadow-sm mb-5">
-      <div class="card-body">
-        <h5 class="card-title" id="contact"><i class="bi bi-envelope-fill"></i> 連絡先</h5>
-        <p class="card-text">
-        <!-- GitHubリンク -->
-        <a href="https://github.com/reireu" target="_blank" rel="noopener noreferrer" class="text-dark fs-3 me-3">
-          <i class="bi bi-github"></i> 
-        </a>
-        <!-- メールリンク -->
-        <a href="mailto:renax749@gmail.com" class="text-dark fs-3">
-          <i class="bi bi-envelope"></i> 
-        </a>
-        </p>
-      </div>
-    </div>
 
     <div class="section-divider"></div>
 
@@ -274,7 +280,24 @@
         </div>
       </div> 
     </div> 
-  </main>
+
+  <div class="section-divider"></div>
+  <div class="card shadow-sm mb-5">
+    <div class="card-body">
+      <h5 class="card-title" id="contact"><i class="bi bi-envelope-fill"></i> 連絡先</h5>
+      <p class="card-text">
+      <!-- GitHubリンク -->
+      <a href="https://github.com/reireu" target="_blank" rel="noopener noreferrer" class="text-dark fs-3 me-3">
+        <i class="bi bi-github"></i> 
+      </a>
+      <!-- メールリンク -->
+      <a href="mailto:renax749@gmail.com" class="text-dark fs-3">
+        <i class="bi bi-envelope"></i> 
+      </a>
+      </p>
+    </div>
+  </div>
+</main>
 
   <footer class="text-center py-4 bg-white shadow-sm">
     <div class="container">
