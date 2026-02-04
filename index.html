@@ -1,418 +1,770 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serena.K.portfolio</title>
-  
-  <!-- 読み込み　-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap&text=%E5%80%89%E7%A7%91%E4%B8%96%E7%8E%B2%E7%8F%A0" rel="stylesheet">
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f5f5f7;
+            --bg-card: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --accent: #0071e3;
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
 
-  <!-- SEO強化 - 構造化データ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "倉科世玲菜",
-    "alternateName": "Kurashina Serena",
-    "description": "データサイエンス学生、多言語話者、プログラマー",
-    "url": "https://reireu.github.io",
-    "image": "https://reireu.github.io/images/mypic.webp",
-    "sameAs": [
-      "https://github.com/reireu",
-      "https://qiita.com/reireu"
-    ],
-    "jobTitle": "データサイエンス学生",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "武蔵野大学"
-    },
-    "knowsLanguage": ["ja", "en", "zh", "fr", "bn", "sw"],
-    "alumniOf": {
-      "@type": "Organization",
-      "name": "Westwood International School"
-    }
-  }
-  </script>
-  
-  <!-- SEO & OGP meta -->
-  <meta name="description" content="倉科世玲菜（Kurashina Serena）のポートフォリオ。データサイエンス・多言語スキル・プログラミング経験を持つ27卒学生の学歴・受賞歴・課外活動を紹介。">
-  <meta name="keywords" content="倉科世玲菜,Kurashina Serena,ポートフォリオ,データサイエンス,プログラミング,多言語,武蔵野大学">
-  <meta name="author" content="倉科世玲菜">
-  <meta property="og:title" content="倉科世玲菜のポートフォリオ | データサイエンス学生">
-  <meta property="og:description" content="データサイエンスや多言語スキルを活かした経歴・活動・作品を掲載。プログラミング、国際経験豊富な27卒学生のポートフォリオ。">
-  <meta property="og:image" content="https://reireu.github.io/images/ogp.webp">
-  <meta property="og:url" content="https://reireu.github.io">
-  <meta property="og:type" content="profile">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="倉科世玲菜のポートフォリオ">
-  <meta name="twitter:description" content="データサイエンス・多言語・プログラミングスキルを持つ学生のポートフォリオ">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .profile-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-left {
+            position: sticky;
+            top: 60px;
+            height: fit-content;
+        }
+
+        .profile-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 32px;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .profile-image-container:hover {
+            transform: scale(1.02) rotate(-1deg);
+        }
+
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 113, 227, 0.1), rgba(0, 113, 227, 0));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .profile-image-container:hover::before {
+            opacity: 1;
+        }
+
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .profile-intro {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            animation: fadeIn 1s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .profile-intro h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .profile-intro .role {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .profile-intro p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .products-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .product-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .product-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 28px;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .product-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .detail-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .detail-btn:hover {
+            background: #0051c2;
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+        }
+
+        .detail-btn::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .detail-btn:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* モーダル */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: white;
+        }
+
+        .modal-body {
+            padding: 40px;
+            max-height: calc(90vh - 300px);
+            overflow-y: auto;
+        }
+
+        .modal-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+            border-bottom: 2px solid var(--border);
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .detail-section {
+            margin-bottom: 28px;
+        }
+
+        .detail-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .detail-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .tech-tag {
+            padding: 8px 16px;
+            background: rgba(0, 113, 227, 0.08);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .profile-left {
+                position: relative;
+                top: 0;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .products-section h2 {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                border-radius: 16px;
+            }
+
+            .modal-body {
+                padding: 24px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* スクロールバーのスタイル */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">Hello World!</div>
-    <nav class="nav-menu">
-      <a href="#awards">作品</a>
-      <a href="#profile">プロフィール</a>
-      <a href="#skills">スキル</a>
-      <a href="#education">学歴</a>
-      <a href="#activities">活動</a>
-      <a href="#contact">連絡先</a>
-    </nav>
-    <div class="header-controls">
-      <button class="theme-toggle" onclick="toggleTheme()">
-        <i class="bi bi-moon-fill" id="theme-icon"></i>
-      </button>
-    </div>
-  </header>
-
-  <main class="container py-5"> 
-    <div class="text-center mb-4">
-      <img src="images/mypic.png" alt="倉科世玲菜のプロフィール写真" class="profile-pic"/>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="card shadow-sm mb-5">
-      <div class="card-body">
-        <h5 class="card-title" id="awards"><i class="bi bi-award"></i> 受賞歴/作品など</h5>
-        <p class="card-text">
-          <span class="badge bg-success"><i class="bi bi-trophy-fill"></i> MVP</span><br>
-          第2回 X Hackathon MVP受賞 テーマ:「顧客の課題を解決するWebページをチームで作成し、コンペで優勝しよう!
-          <a href="https://vcs.sakazuki.xyz/career-credentials/clu3y05sy000ks601gz3iht75" target="_blank" rel="noopener">参考</a>
-
-      <!-- プロジェクトカード1 -->
-      <div class="project-card">
-        <img src="./screenshot1.png" alt="X Hackathon MVP作品" />
-        <h6>チームでWebページを制作し、MVPを受賞しました。</h6>
-        <p>HTML,css</p>
-        <a href="https://github.com/reireu/dglp" target="_blank" rel="noopener">
-          <i class="bi bi-box-arrow-up-right"></i> サイトを見る
-        </a>
-      </div>
-
-      <!-- プロジェクトカード2 -->
-      <div class="project-card">
-        <img src="./screenshot2.png" alt="感覚過敏支援システム" />
-        <h6>危険箇所を共有できる地図アプリを構築しました。</h6>
-        <p>HTML,css,JavaScript</p>
-        <a href="https://qiita.com/reireu/items/6a796cbabbbe550a66c2" target="_blank" rel="noopener noreferrer">
-          <i class="bi bi-box-arrow-up-right"></i> 記事を見る
-        </a>
-      </div>
-
-      <!-- プロジェクトカード3 -->
-      <div class="project-card">
-        <img src="./scrrenshot3.png" alt="都市音響エコロジー" />
-        <h6>音環境の時空間的変化を可視化するシステムを開発。</h6>
-        <p>Python</p>
-        <a href="https://qiita.com/reireu/items/75398c03be67021b3616" target="_blank" rel="noopener noreferrer">
-          <i class="bi bi-box-arrow-up-right"></i> 記事を見る
-        </a>
-      </div>
-
-      <!-- プロジェクトカード4 -->
-      <div class="project-card">
-        <img src="./screenshot4.png" alt="中国語発音矯正アプリ画面のスクショ" />
-        <h6>中国語発音矯正</h6>
-        <p>Dart,Python</p>
-        <a href="https://qiita.com/reireu/items/75398c03be67021b3616" target="_blank" rel="noopener noreferrer">
-          <i class="bi bi-box-arrow-up-right"></i> 記事を見る
-        </a>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-    <div class="card shadow-sm mb-5">
-      <div class="card-body">
-        <h5 class="card-title" id="profile"><i class="bi bi-person-circle"></i> 自己紹介</h5>
-        <p class="card-text">
-          倉科世玲菜/Kurashina Serena です！
-        </p>
-        <p class="card-text">
-          27卒。2005年誕。<br>
-          東京都23区南寄りに15年間、父親がJICAで働いてる関係で名前を言っても反応に困るアフリカの国に3年と2年、計5年住んでいました。<br>
-          同時バイリンガル寄りの早期バイリンガルではありますが、資格で証明できる英語はB1レベルです。（14歳次英検2級）<br>
-          その他🇨🇳中国語（マンダリン）を趣味で、🇫🇷フランス語を第二外国語として勉強しています。（2025.5.16 現在日常会話可能レベル）<br>
-          🇧🇩ベンガル語と🇰🇪スワヒリ語と🇧🇼ツワナ語の語彙をほんのちょっとだけ知っています。（2025.5.16 現在基礎会話可能レベル）<br>
-          順得意順。<br><br>
-          なにか自分の世界線を構築するのが好きで、今も小説も書くのですが、大学になって以降は自分の世界線を構築するために、プログラミングも手段として取り入れ、難しいながら楽しませてもらっています。<br>
-          授業でmatplotlib、TensorFlowなどを触れていました。その他ゼミの自分の開発案件で、HTML・CSSも触れていました。<br>
-          最近は、就活に追われながら気がむくままに勉強しています。<br><br>
-        </p>
-      </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="card shadow-sm mb-5">
-      <div class="card-body">
-        <h5 class="card-title" id="skills"><i class="bi bi-lightning"></i> スキル</h5>
-        <div class="skills-container">
-
-          <div class="skill-item">
-            <div class="skill-header d-flex justify-content-between">
-              <span class="skill-name">Git/Github</span>
-              <span class="skill-level">50%</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar" style="width: 50%"></div>
-            </div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-header d-flex justify-content-between">
-              <span class="skill-name">Python</span>
-              <span class="skill-level">40%</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar" style="width: 40%"></div>
-            </div>
-          </div>
-          
-          <div class="skill-item">
-            <div class="skill-header d-flex justify-content-between">
-              <span class="skill-name">HTML/CSS</span>
-              <span class="skill-level">40%</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar" style="width: 40%"></div>
-            </div>
-          </div>
-          
-          <div class="skill-item">
-            <div class="skill-header d-flex justify-content-between" role="presentation">
-              <span class="skill-name" id="js-skill">JavaScript</span>
-              <span class="skill-level" aria-labelledby="js-skill">20%</span>
-            </div>
-            <div class="progress-container" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar" style="width: 20%"></div>
-            </div>
-          </div>
-          
-          <div class="skill-item">
-            <div class="skill-header d-flex justify-content-between">
-              <span class="skill-name">Ruby</span>
-              <span class="skill-level">20%</span>
-            </div>
-            <div class="progress-container">
-              <div class="progress-bar" style="width:20%"></div>
-            </div>
-          </div>
-
-        </div>
-      </div> 
-    </div> 
-
-    <div class="section-divider"></div>
-
-    <div class="card shadow-sm mb-5">
-      <div class="card-body">
-        <h5 class="card-title" id="education"><i class="bi bi-mortarboard"></i> 学歴</h5>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">2016年12月 - 2018年12月</div>
-            <div class="timeline-title">Westwood International School</div>
-            <div class="timeline-description">
-              Back to those days in Botswana, I was running all around the playground to play tag and football.<br>
-              I was a member of the school orchestra and played trumpet.
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-date">2023年04月 - 現在</div>
-            <div class="timeline-title">武蔵野大学 データサイエンス学部</div>
-            <div class="timeline-description">
-              プログラミングサークル（will）、保育園のインターン、区の20歳のつどい実行委員、ケニアの時の幼稚園でもあるNGOに参加しながら、自分のやりたいことを追求できた良い環境です。
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="card shadow-sm mb-5">
-      <div class="card-body">
-        <h5 class="card-title" id="activities"><i class="bi bi-people-fill"></i> 課外活動</h5>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">2022年4月 - 現在</div>
-            <div class="timeline-title">NGO Koinnonia Centre</div>
-            <div class="timeline-description">
-              ケニアのスラム街に住む子たちに、世界で活躍できる教育を目指し、保育園から高校まで一気通貫型教育を行っているNGO団体で、私の出身幼稚園です。<br>
-              母親が責任感が強く、たまに体調を崩してでも活動してしまうので、excelや文章作成といったところで、軽くお手伝いをしています。<br>
-              最近では新宿のバナーに参加し、想像以上の売り上げに携われ、大変嬉しく思っております。
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-date">2024年9月 - 2025年2月</div>
-            <div class="timeline-title">まなびの森麻布 保育補助インターン</div>
-            <div class="timeline-description">
-              保育補助のインターンとして、おむつ替え、掃除、カーテン替えから、名刺作成パンフ作成など、幅広い業務を行いました。<br>
-              どのような進路に進むとしても、全く経験のないところを一度は押さえておきたい気持ちから、応募しましたが、せれな先生！と呼ばれるあの時間が日々の癒しでした。<br>
-              日々の生活力、言葉をわかりやすく言い換える力など、思わぬ力が身についた、充実した時間でした。
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-date">2024年9月 - 2025年1月</div>
-            <div class="timeline-title">港区主催 20歳のつどい実行委員</div>
-            <div class="timeline-description">
-              自らの参加する成人式の、立案、企画、当日の運営まで、同い年13人でやり抜きました。<br>
-              自身は、案だし、当日の運営を担当し、当日までの準備としてクイズ生成や行いました。<br>
-              会場がどっと盛り上がった瞬間や、同い年の友達と一緒に作り上げた感があった瞬間は、何にも代えがたい経験でした。<br>
-              チームプレイや、責任のある仕事を任されるのが、思っていた以上に好きだと知れた、貴重な経験でした。
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div> 
-
-  <div class="section-divider"></div>
-  <div class="card shadow-sm mb-5">
-    <div class="card-body">
-      <h5 class="card-title" id="contact"><i class="bi bi-envelope-fill"></i> 連絡先</h5>
-      <p class="card-text">
-      <!-- GitHubリンク -->
-      <a href="https://github.com/reireu" target="_blank" rel="noopener noreferrer" class="text-dark fs-3 me-3">
-        <i class="bi bi-github"></i> 
-      </a>
-      <!-- メールリンク -->
-      <a href="mailto:renax749@gmail.com" class="text-dark fs-3">
-        <i class="bi bi-envelope"></i> 
-      </a>
-      </p>
-    </div>
-  </div>
-</main>
-
-  <footer class="text-center py-4 bg-white shadow-sm">
     <div class="container">
-      <small>&copy; 2025 倉科世玲菜 / Kurashina Serena</small>
+        <div class="profile-section">
+            <div class="profile-left">
+                <div class="profile-image-container">
+                    <img src="./images/mypic.png" alt="プロフィール写真" class="profile-image">
+                </div>
+                <div class="profile-intro">
+                    <h1>倉科世玲菜</h1>
+                    <span class="role">Data Science</span>
+                    <p>
+                        好きなことをweb上に。をモットーに。<br>
+                        自分が欲しいものはどうやったら他人にも届くものになるか？を第一に考えています。
+                    </p>
+                </div>
+            </div>
+
+            <div class="products-section">
+                <h2>プロダクト</h2>
+                <div class="products-grid">
+                    <div class="product-card" onclick="openModal('product1')">
+                        <img src="./screenshot5.png" alt="裁判航跡の画面" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">裁判航跡 </h3>
+                            <p class="product-description">国際法の判例を地球儀とともに眺める</p>
+                            <button class="detail-btn">詳細を見る</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" onclick="openModal('product2')">
+                        <img src="./screenshot4.png" alt="BoldChineseの画面" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">BoldChinese</h3>
+                            <p class="product-description">中国語の発音を録音すると正誤を記録。</p>
+                            <button class="detail-btn">詳細を見る</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" onclick="openModal('product3')">
+                        <img src="./screenshot1.png" alt="ECプラットフォーム" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">dglp</h3>
+                            <p class="product-description">顧客の課題を解決するWebページをチームで作成するコンペ</div></p>
+                            <button class="detail-btn">詳細を見る</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </footer>
-    
-  <!-- Bootstrap 5のJavaScriptを追加 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- ポートフォリオ機能のJavaScript -->
-  <script>
-  // ダークモード切り替え機能
-  function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    
-    // アイコンを更新
-    const themeIcon = document.getElementById('theme-icon');
-    if (newTheme === 'dark') {
-      themeIcon.className = 'bi bi-sun-fill';
-    } else {
-      themeIcon.className = 'bi bi-moon-fill';
-    }
-  }
 
-  // ページ読み込み時の初期化
-  document.addEventListener('DOMContentLoaded', function() {
-    // デフォルトでライトモードを設定
-    document.documentElement.setAttribute('data-theme', 'light');
-    
-    // アイコンを適切に設定
-    const themeIcon = document.getElementById('theme-icon');
-    themeIcon.className = 'bi bi-moon-fill';
-    
-    // スムーズスクロールの設定
-    setupSmoothScroll();
-    
-    // プログレスバーアニメーションの設定
-    setupProgressAnimation();
-    
-    // ヘッダースクロール効果の設定
-    setupHeaderScroll();
-  });
+    <!-- モーダル1 -->
+    <div id="modal-product1" class="modal" onclick="closeModal('product1', event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop" alt="プロジェクト管理アプリ">
+                <button class="modal-close" onclick="closeModal('product1')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="tab-btn active" onclick="switchTab('product1', 'overview')">概要</button>
+                    <button class="tab-btn" onclick="switchTab('product1', 'features')">機能</button>
+                    <button class="tab-btn" onclick="switchTab('product1', 'tech')">技術スタック</button>
+                    <button class="tab-btn" onclick="switchTab('product1', 'results')">成果</button>
+                </div>
 
-  // スムーズスクロール機能
-  function setupSmoothScroll() {
-    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-    const headerHeight = 80; // 固定値を使用
-    
-    navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
+                <div id="product1-overview" class="tab-content active">
+                    <h2 class="modal-title">裁判航跡</h2>
+                    <div class="detail-section">
+                        <h3>プロジェクトについて</h3>
+                        <p>無限にある重要判例について、国ごとの関わりをイメージの補助となる公開サイト</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>背景・課題</h3>
+                        <p>法は、不文律が多く、あるものも基本的には文章単位が多く、専門的に学んでいる人でも覚えきれないものが無数にある。</p>
+                    </div>
+                </div>
+
+                <div id="product1-features" class="tab-content">
+                    <h2 class="modal-title">主要機能</h2>
+                    <div class="detail-section">
+                        <h3>検索機能</h3>
+                        <p>100%完璧覚えていなくても、複数の方法（キーワード、ざっくりとした年数、関わっている国）などから検索できます。</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>勝訴、敗訴国のレンダリング</h3>
+                        <p>勝訴と敗訴に色わけして、国が塗りつぶされているので、視覚的にどのような関係か一目でわかります。</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>自動再生、自動勝訴国フォーカス</h3>
+                        <p>勝訴国に自動的に地球儀が回るほか、2秒ごとに自動で切り替えてくれる仕組みがあるので、サイトをぼーっと見るだけでも勉強になります。</p>
+                    </div>
+                </div>
+
+                <div id="product1-tech" class="tab-content">
+                    <h2 class="modal-title">技術スタック</h2>
+                    <div class="detail-section">
+                        <h3>使用技術</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">React (Vite)</span>
+                            <span class="tech-tag">Three.js / react-globe.gl</span>
+                            <span class="tech-tag">D3.js (d3-array)</span>
+                            <span class="tech-tag">TopoJSON (topojson-client)</span>
+                            <span class="tech-tag">World Atlas</span>
+                            <span class="tech-tag">Pure CSS</span>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>アーキテクチャ</h3>
+                        <p>静的データ駆動型SPA</p>
+                    </div>
+                </div>
+
+                <div id="product1-results" class="tab-content">
+                    <h2 class="modal-title">プロジェクト成果</h2>
+                    <div class="detail-section">
+                        <h3></h3>
+                        <p><a href="https://law-visualization.vercel.app/">ここをタップすることで、実際に使用感をお試しいただけます。</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- モーダル2 -->
+    <div id="modal-product2" class="modal" onclick="closeModal('product2', event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <img src="./screenshot4" alt="BoldChineseの画面">
+                <button class="modal-close" onclick="closeModal('product2')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="tab-btn active" onclick="switchTab('product2', 'overview')">概要</button>
+                    <button class="tab-btn" onclick="switchTab('product2', 'features')">機能</button>
+                    <button class="tab-btn" onclick="switchTab('product2', 'tech')">技術スタック</button>
+                    <button class="tab-btn" onclick="switchTab('product2', 'results')">成果</button>
+                </div>
+
+                <div id="product2-overview" class="tab-content active">
+                    <h2 class="modal-title">データ分析ダッシュボード</h2>
+                    <div class="detail-section">
+                        <h3>プロジェクトについて</h3>
+                        <p>中国語の発音を録音すると、一漢字ごとに発音を返してくれます。</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>背景・課題</h3>
+                        <p>中国語は発音形態がかなり異なるほか、声調があるので自己学習が極めて難しいとされています。</p>
+                    </div>
+                </div>
+
+                <div id="product2-features" class="tab-content">
+                    <h2 class="modal-title">主要機能</h2>
+                    <div class="detail-section">
+                        <h3>録音後フィードバック</h3>
+                        <p>録音から5秒以内に、声調、発音両面からのフィードバックが行われます。</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>ダッシュボード</h3>
+                        <p>ダッシュボードから、どの漢字が苦手か、同じ文章でどのようなミスが行われているかが確認できます。</p>
+                    </div>
+                </div>
+
+                <div id="product2-tech" class="tab-content">
+                    <h2 class="modal-title">技術スタック</h2>
+                    <div class="detail-section">
+                        <h3>使用技術</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Dart/Flutter</span>
+                            <span class="tech-tag">python/FastAPI</span>
+                            <span class="tech-tag">Paddlespeech</span>
+                            <span class="tech-tag">FastAPI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="product2-results" class="tab-content">
+                    <h2 class="modal-title">プロジェクト成果</h2>
+                    <div class="detail-section">
+                        <h3>自分自身の発音の傾向確認</h3>
+                        <p>どの発音も実際苦手だと思っていましたが、実際は比較的得意な声調があることを、アプリ側からも知れた。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- モーダル3 -->
+    <div id="modal-product3" class="modal" onclick="closeModal('product3', event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <img src="./screenshot1.png" alt="作品の写真">
+                <button class="modal-close" onclick="closeModal('product3')">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="tab-btn active" onclick="switchTab('product3', 'overview')">概要</button>
+                    <button class="tab-btn" onclick="switchTab('product3', 'features')">機能</button>
+                    <button class="tab-btn" onclick="switchTab('product3', 'tech')">技術スタック</button>
+                    <button class="tab-btn" onclick="switchTab('product3', 'results')">成果</button>
+                </div>
+
+                <div id="product3-overview" class="tab-content active">
+                    <h2 class="modal-title">dp</h2>
+                    <div class="detail-section">
+                        <h3>プロジェクトについて</h3>
+                        <p>今後売り出したいプロダクトの販売サイトを作成してみよう！をテーマとしたハッカソンでした。</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>背景・課題</h3>
+                        <p>1年生の時に友人2人と出場、MVPを取りました。</p>
+                    </div>
+                </div>
+
+                <div id="product3-features" class="tab-content">
+                    <h2 class="modal-title">主要機能</h2>
+                    <div class="detail-section">
+                        <h3>フォーム</h3>
+                        <p>連絡が可能になっている。</p>
+                    </div>
+                </div>
+
+                <div id="product3-tech" class="tab-content">
+                    <h2 class="modal-title">技術スタック</h2>
+                    <div class="detail-section">
+                        <h3>使用技術</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML, CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="product3-results" class="tab-content">
+                    <h2 class="modal-title">プロジェクト成果</h2>
+                    <div class="detail-section">
+                        <h3>MVP</h3>
+                        <p>
+                            <a href="https://careerpassport.id/career-credentials/clu3y05sy000ks601gz3iht75">
+                                実際に当時の評価をご覧いただけます。
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function openModal(productId) {
+            const modal = document.getElementById(`modal-${productId}`);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
-      });
-    });
-  }
 
-  // ヘッダースクロール効果
-  function setupHeaderScroll() {
-    const header = document.querySelector('.header');
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 100) {
-        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-    });
-  }
+        function closeModal(productId, event) {
+            if (event && event.target !== event.currentTarget) return;
+            const modal = document.getElementById(`modal-${productId}`);
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-  // プログレスバーアニメーション
-  function setupProgressAnimation() {
-    const progressBars = document.querySelectorAll('.progress-bar');
-    
-    const animateProgressBars = () => {
-      progressBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0%';
-        
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 100);
-      });
-    };
-    
-    // IntersectionObserver でスキルセクションが表示されたらアニメーション
-    const skillsSection = document.querySelector('#skills');
-    if (skillsSection) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateProgressBars();
-            observer.unobserve(entry.target);
-          }
+        function switchTab(productId, tabName) {
+            // タブボタンの切り替え
+            const tabButtons = document.querySelectorAll(`#modal-${productId} .tab-btn`);
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // タブコンテンツの切り替え
+            const tabContents = document.querySelectorAll(`#modal-${productId} .tab-content`);
+            tabContents.forEach(content => content.classList.remove('active'));
+            document.getElementById(`${productId}-${tabName}`).classList.add('active');
+        }
+
+        // ESCキーでモーダルを閉じる
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
         });
-      }, { threshold: 0.5 });
-      
-      observer.observe(skillsSection.closest('.card'));
-    }
-  }
-  </script>
+    </script>
 </body>
 </html>
