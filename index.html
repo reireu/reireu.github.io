@@ -141,6 +141,40 @@
             line-height: 1.7;
         }
 
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(83, 101, 181, 0.08);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(83, 101, 181, 0.3);
+        }
+
+        .contact-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
         .products-section h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
@@ -405,6 +439,17 @@
             line-height: 1.8;
         }
 
+        .detail-section a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .detail-section a:hover {
+            border-bottom-color: var(--accent);
+        }
+
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -458,6 +503,10 @@
             .modal-title {
                 font-size: 1.5rem;
             }
+
+            .contact-links {
+                flex-direction: column;
+            }
         }
 
         /* スクロールバーのスタイル */
@@ -503,8 +552,22 @@
                         Natural Languages <br>                 
                         日本語 <br>                   
                         英語
-                        
                     </p>
+                    <div class="contact-links">
+                        <a href="renax749@gmail.com" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Gmail
+                        </a>
+                        <a href="https://github.com/reireu" target="_blank" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -514,7 +577,7 @@
                     <div class="product-card" onclick="openModal('product1')">
                         <img src="./screenshot5.png" alt="裁判航跡の画面" class="product-image">
                         <div class="product-info">
-                            <h3 class="product-title">裁判航跡 </h3>
+                            <h3 class="product-title">裁判航跡</h3>
                             <p class="product-description">国際法の判例を地球儀とともに眺める</p>
                             <button class="detail-btn">詳細を見る</button>
                         </div>
@@ -524,16 +587,16 @@
                         <img src="./screenshot4.png" alt="BoldChineseの画面" class="product-image">
                         <div class="product-info">
                             <h3 class="product-title">BoldChinese</h3>
-                            <p class="product-description">中国語の発音を録音すると正誤を記録。</p>
+                            <p class="product-description">中国語の発音を録音すると正誤を記録</p>
                             <button class="detail-btn">詳細を見る</button>
                         </div>
                     </div>
 
                     <div class="product-card" onclick="openModal('product3')">
-                        <img src="./screenshot1.png" alt="ECプラットフォーム" class="product-image">
+                        <img src="./screenshot1.png" alt="dglpの画面" class="product-image">
                         <div class="product-info">
                             <h3 class="product-title">dglp</h3>
-                            <p class="product-description">顧客の課題を解決するWebページをチームで作成するコンペ</div></p>
+                            <p class="product-description">顧客の課題を解決するWebページをチームで作成するコンペ</p>
                             <button class="detail-btn">詳細を見る</button>
                         </div>
                     </div>
@@ -546,7 +609,7 @@
     <div id="modal-product1" class="modal" onclick="closeModal('product1', event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <img src="./screenshot5.png" alt="プロジェクト管理アプリ">
+                <img src="./screenshot5.png" alt="裁判航跡">
                 <button class="modal-close" onclick="closeModal('product1')">&times;</button>
             </div>
             <div class="modal-body">
@@ -608,8 +671,8 @@
                 <div id="product1-results" class="tab-content">
                     <h2 class="modal-title">プロジェクト成果</h2>
                     <div class="detail-section">
-                        <h3></h3>
-                        <p><a href="https://law-visualization.vercel.app/">ここをタップすることで、実際に使用感をお試しいただけます。</a></p>
+                        <h3>デモサイト</h3>
+                        <p><a href="https://law-visualization.vercel.app/" target="_blank">ここをタップすることで、実際に使用感をお試しいただけます。</a></p>
                     </div>
                 </div>
             </div>
@@ -632,7 +695,7 @@
                 </div>
 
                 <div id="product2-overview" class="tab-content active">
-                    <h2 class="modal-title">データ分析ダッシュボード</h2>
+                    <h2 class="modal-title">BoldChinese</h2>
                     <div class="detail-section">
                         <h3>プロジェクトについて</h3>
                         <p>中国語の発音を録音すると、一漢字ごとに発音を返してくれます。</p>
@@ -661,9 +724,8 @@
                         <h3>使用技術</h3>
                         <div class="tech-stack">
                             <span class="tech-tag">Dart/Flutter</span>
-                            <span class="tech-tag">python/FastAPI</span>
+                            <span class="tech-tag">Python/FastAPI</span>
                             <span class="tech-tag">Paddlespeech</span>
-                            <span class="tech-tag">FastAPI</span>
                         </div>
                     </div>
                 </div>
@@ -675,8 +737,8 @@
                         <p>どの発音も実際苦手だと思っていましたが、実際は比較的得意な声調があることを、アプリ側からも知れた。</p>
                     </div>
                     <div class="detail-section">
-                        <h3>デモリンク</h3>
-                        <p><a href="https://www.youtube.com/watch?v=7EhedpQFkqE">こちらからご覧ください。</a></p>
+                        <h3>デモ動画</h3>
+                        <p><a href="https://www.youtube.com/watch?v=7EhedpQFkqE" target="_blank">こちらからご覧ください。</a></p>
                     </div>
                 </div>
             </div>
@@ -687,7 +749,7 @@
     <div id="modal-product3" class="modal" onclick="closeModal('product3', event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <img src="./screenshot1.png" alt="作品の写真">
+                <img src="./screenshot1.png" alt="dglpの画面">
                 <button class="modal-close" onclick="closeModal('product3')">&times;</button>
             </div>
 
@@ -700,22 +762,30 @@
                 </div>
 
                 <div id="product3-overview" class="tab-content active">
-                    <h2 class="modal-title">dp</h2>
+                    <h2 class="modal-title">dglp</h2>
                     <div class="detail-section">
                         <h3>プロジェクトについて</h3>
-                        <p>今後売り出したいプロダクトの販売サイトを作成してみよう！をテーマとしたハッカソンでした。</p>
+                        <p>今後売り出したいプロダクトの販売サイトを作成してみよう!をテーマとしたハッカソン。デザイン・ユーザビリティ・コンセプトの3軸で評価されるコンペティションでした。</p>
                     </div>
                     <div class="detail-section">
                         <h3>背景・課題</h3>
-                        <p>1年生の時に友人2人と出場、MVPを取りました。</p>
+                        <p>1年生の時に友人2人と出場し、MVPを獲得しました。架空の環境配慮型プロダクトのランディングページを制作し、デザインとコンセプトの両面で高評価を得ました。</p>
                     </div>
                 </div>
 
                 <div id="product3-features" class="tab-content">
                     <h2 class="modal-title">主要機能</h2>
                     <div class="detail-section">
-                        <h3>フォーム</h3>
-                        <p>連絡が可能になっている。</p>
+                        <h3>レスポンシブデザイン</h3>
+                        <p>モバイル・タブレット・デスクトップすべてのデバイスに最適化されたレイアウトを実装しました。</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>お問い合わせフォーム</h3>
+                        <p>ユーザーからの問い合わせを受け付けるフォーム機能を実装し、顧客とのコミュニケーションを可能にしました。</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>ビジュアルストーリーテリング</h3>
+                        <p>製品の魅力を視覚的に伝えるため、アニメーションとレイアウトを工夫しました。</p>
                     </div>
                 </div>
 
@@ -724,20 +794,27 @@
                     <div class="detail-section">
                         <h3>使用技術</h3>
                         <div class="tech-stack">
-                            <span class="tech-tag">HTML, CSS</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
                         </div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>開発アプローチ</h3>
+                        <p>Pure HTML/CSS/JavaScriptでシンプルかつ効果的なランディングページを構築。軽量で高速な読み込みを実現しました。</p>
                     </div>
                 </div>
 
                 <div id="product3-results" class="tab-content">
                     <h2 class="modal-title">プロジェクト成果</h2>
                     <div class="detail-section">
-                        <h3>MVP</h3>
-                        <p>
-                            <a href="https://careerpassport.id/career-credentials/clu3y05sy000ks601gz3iht75">
-                                実際に当時の評価をご覧いただけます。
-                            </a>
-                        </p>
+                        <h3>MVP受賞</h3>
+                        <p>デザイン、ユーザビリティ、コンセプトの総合評価でMVPを獲得しました。<br>
+                        <a href="https://careerpassport.id/career-credentials/clu3y05sy000ks601gz3iht75" target="_blank">実際の評価をこちらからご覧いただけます。</a></p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>学んだこと</h3>
+                        <p>チームでのWeb開発の基礎、ユーザー視点でのデザイン思考、そして限られた時間内での開発の重要性を学びました。この経験が、その後のプロジェクトの基盤となっています。</p>
                     </div>
                 </div>
 
