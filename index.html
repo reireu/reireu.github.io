@@ -603,6 +603,15 @@
                             <button class="detail-btn">詳細を見る</button>
                         </div>
                     </div>
+
+                    <div class="product-card" onclick="openModal('product4')">
+                        <img src="./gptcollo.png" alt="gptの強起" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">LLMによる小説翻訳差</h3>
+                            <p class="product-description">ChatGPT,Gemini,Deepseekに中国語に翻訳してもらい、翻訳語の中国語の分析</p>
+                            <button class="detail-btn">詳細を見る</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -799,6 +808,7 @@
                         <div class="tech-stack">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
+                        </div>
                     </div>
                 </div>
 
@@ -812,6 +822,71 @@
                     <div class="detail-section">
                         <h3>学んだこと</h3>
                         <p>チームでのWeb開発の基礎、ユーザー視点でのデザイン思考、そして限られた時間内での開発の重要性を学びました。この経験が、その後のプロジェクトの基盤となっています。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- モーダル4 -->
+    <div id="modal-product4" class="modal" onclick="closeModal('product4', event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <img src="./gptcollo.png" alt="LLMによる小説翻訳差の可視化">
+                <button class="modal-close" onclick="closeModal('product4')">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="tab-btn active" onclick="switchTab('product4', 'overview')">概要</button>
+                    <button class="tab-btn" onclick="switchTab('product4', 'features')">機能</button>
+                    <button class="tab-btn" onclick="switchTab('product4', 'tech')">技術スタック</button>
+                    <button class="tab-btn" onclick="switchTab('product4', 'results')">成果</button>
+                </div>
+
+                <div id="product4-overview" class="tab-content active">
+                    <h2 class="modal-title">LLMによる小説翻訳差</h2>
+                    <div class="detail-section">
+                        <h3>プロジェクトについて</h3>
+                        <p>ChatGPT・Gemini・DeepSeekによる中国語翻訳結果を収集し、語彙や表現の違いを比較可視化した分析プロジェクトです。</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>背景・課題</h3>
+                        <p>複数モデルの翻訳スタイル差異を学習に活かすため、客観的にキャラを把握したいという課題がありました。</p>
+                    </div>
+                </div>
+
+                <div id="product4-features" class="tab-content">
+                    <h2 class="modal-title">主要機能</h2>
+                    <div class="detail-section">
+                        <h3>語彙比較</h3>
+                        <p>モデルごとに頻出語を抽出し、語彙のニュアンス差を俯瞰できます。</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>構文パターン分析</h3>
+                        <p>係り受けやコロケーションを比較し、翻訳の特徴を定量的に把握します。</p>
+                    </div>
+                </div>
+
+                <div id="product4-tech" class="tab-content">
+                    <h2 class="modal-title">技術スタック</h2>
+                    <div class="detail-section">
+                        <h3>使用技術</h3>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python 3</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Matplotlib</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="product4-results" class="tab-content">
+                    <h2 class="modal-title">プロジェクト成果</h2>
+                    <div class="detail-section">
+                        <h3>レポート</h3>
+                        <p>レポートを作成しました。<br>
+                        <a href="https://careerpassport.id/career-credentials/clu3y05sy000ks601gz3iht75" target="_blank">一部抜粋をこちらからご覧いただけます。</a></p>
                     </div>
                 </div>
 
