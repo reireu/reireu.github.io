@@ -530,14 +530,56 @@
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.3);
         }
+
+        .qr-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .qr-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .qr-overlay-content {
+            background: var(--bg-card);
+            padding: 18px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: min(360px, 90vw);
+            width: 90vw;
+        }
+
+        .qr-overlay-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
+    <div id="qrOverlay" class="qr-overlay">
+        <div id="qrOverlayContent" class="qr-overlay-content">
+            <img src="./images/reireu_github_io_qr.png" alt="QRコード">
+        </div>
+    </div>
     <div class="container">
         <div class="profile-section">
             <div class="profile-left">
                 <div class="profile-image-container">
-                    <img src="./images/mypic.png" alt="プロフィール写真" class="profile-image">
+                    <img src="./images/mypic.png" alt="プロフィール写真" class="profile-image" id="profileImage">
                 </div>
                 <div class="profile-intro">
                     <h1>Reireu's portfolio</h1>
@@ -922,8 +964,36 @@
                     modal.classList.remove('active');
                     document.body.style.overflow = '';
                 });
+
+                const qrOverlay = document.getElementById('qrOverlay');
+                if (qrOverlay) qrOverlay.classList.remove('active');
             }
         });
+
+        const profileImage = document.getElementById('profileImage');
+        const qrOverlay = document.getElementById('qrOverlay');
+        const qrOverlayContent = document.getElementById('qrOverlayContent');
+
+        function toggleQrOverlay() {
+            if (!qrOverlay) return;
+            qrOverlay.classList.toggle('active');
+        }
+
+        if (profileImage && qrOverlay && qrOverlayContent) {
+            profileImage.style.cursor = 'pointer';
+            profileImage.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleQrOverlay();
+            });
+
+            qrOverlay.addEventListener('click', () => {
+                qrOverlay.classList.remove('active');
+            });
+
+            qrOverlayContent.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
     </script>
 </body>
 </html>
